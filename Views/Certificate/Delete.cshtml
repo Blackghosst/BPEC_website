@@ -1,0 +1,68 @@
+﻿@model BPEC.Models.Certificate
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Certificate</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CertificateName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CertificateName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CertificateAbout)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CertificateAbout)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CertificateWhy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CertificateWhy)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CertificateWhyBPEC)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CertificateWhyBPEC)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CertificateWho)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CertificateWho)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LastUpdatedBy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastUpdatedBy)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LasyUpdatedDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LasyUpdatedDate)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

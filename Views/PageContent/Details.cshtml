@@ -1,0 +1,51 @@
+﻿@model BPEC.Models.PageContent
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>PageContent</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PageCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PageCode)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PageDisplayName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PageDisplayName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PageContentHTML)
+    </div>
+    <div class="display-field">
+        @Html.Raw(HttpUtility.HtmlDecode(Model.PageContentHTML))
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LastUpdatedBy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastUpdatedBy)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LasyUpdatedDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LasyUpdatedDate)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.PageContentID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,52 @@
+﻿@model BPEC.Models.Client
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Client</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ClientName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ClientName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ClientAbout)
+    </div>
+    <div class="display-field">
+        @Html.Raw(HttpUtility.HtmlDecode(Model.ClientAbout))
+    </div>
+    <div class="display-label">
+        <label for="ClientAbout">Client Logo</label>             
+    </div>
+    <div class="editor-field">
+        @if (Model.HasLogo)
+        {
+            <img border="0" src="~/_DynamicContent/@Html.Encode(@Model.ClientName+".gif")" />
+        }
+    </div>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LastUpdatedBy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastUpdatedBy)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LasyUpdatedDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LasyUpdatedDate)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ClientID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,32 @@
+﻿@{
+    //ViewBag.Title = "ClientPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<table align="center" cellpadding="20" cellspacing="0" width="980">
+    <tr>
+    <td width="200" valign="top" bgcolor="#f1f1f1">
+        <div class="TitleString">Our Clients</div>
+            <br/>
+        <div style="padding-left:20px;">
+            @foreach (BPEC.Controllers.HomeController.ClientName item in BPEC.Controllers.HomeController.GetClientNames())
+            {
+                <a href="~/Home/ClientPage/?client=@item.ClientNameStr" class="NormalLink" style="line-height:25px;">@item.ClientNameStr</a><br/>
+            }
+        </div>
+    </td>
+    <td valign="top" class="NormalText">
+        <div class="TitleString"><b>@ViewBag.TitleStr</b></div>
+        @if (Model.HasLogo)
+        {
+            <img border="0" src="~/_DynamicContent/@Html.Encode(@Model.ClientName+".gif")" />
+        }
+        <br/><br/>
+        
+        <div class="TitleString">About @ViewBag.TitleStr</div>
+        @Html.Raw(HttpUtility.HtmlDecode(Model.ClientAbout))
+        <br />
+
+                
+    </td>
+    </tr>
+</table>

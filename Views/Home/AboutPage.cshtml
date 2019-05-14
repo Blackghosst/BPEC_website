@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<table align="center" cellpadding="20" cellspacing="0" width="980">
+    <tr>
+    <td width="200" valign="top" bgcolor="#f1f1f1">
+        <div class="TitleString">About Us</div>
+            <br/>
+            <div style="padding-left:20px;">
+            <a href="~/Home/AboutPage/?section=Who we are?" class="NormalLink" style="line-height:25px;">Who we are?</a><br/>
+            <a href="~/Home/AboutPage/?section=Mission, Vision and Fact" class="NormalLink" style="line-height:25px">Mission, Vision and Fact</a><br/>
+            <a href="~/Home/AboutPage/?section=Why choose BPEC?" class="NormalLink" style="line-height:25px">Why choose BPEC?</a><br/>              
+            <a href="~/Home/AboutPage/?section=Organization Structure" class="NormalLink" style="line-height:25px">Organization Structure</a><br/>
+            <a href="~/Home/AboutPage/?section=Location and contact" class="NormalLink" style="line-height:25px">Location and contact</a><br/>
+        </div>
+    </td>
+    <td valign="top" class="NormalText">
+        <div class="TitleString"><b>@ViewBag.TitleStr</b></div>
+        <br/>
+        @Html.Raw(HttpUtility.HtmlDecode(Model.ToString()))        
+    </td>
+    </tr>
+</table>

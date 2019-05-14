@@ -1,0 +1,22 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<table align="center" cellpadding="20" cellspacing="0" width="980">
+    <tr>
+    <td width="200" valign="top" bgcolor="#f1f1f1">
+        <div class="TitleString">About Us</div>
+            <br/>
+            <div style="padding-left:20px;">
+            <a href="~/Home/ProgramsPage/?section=Corporate Courses" class="NormalLink" style="line-height:25px;">Corporate Courses</a><br/>
+            <a href="~/Home/ProgramsPage/?section=In House Courses" class="NormalLink" style="line-height:25px">In House Courses</a><br/>
+            <a href="~/Home/ProgramsPage/?section=Individual Private Courses" class="NormalLink" style="line-height:25px">Individual Private Courses</a><br/>
+            <a href="~/Home/ProgramsPage/?section=Individual Group Courses" class="NormalLink" style="line-height:25px">Individual Group Courses</a><br/>           
+        </div>
+    </td>
+    <td valign="top" class="NormalText">
+        <div class="TitleString"><b>@ViewBag.TitleStr</b></div>
+        <br/>
+        @Html.Raw(HttpUtility.HtmlDecode(Model.ToString()))        
+    </td>
+    </tr>
+</table>

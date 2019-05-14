@@ -1,0 +1,13 @@
+﻿@{
+    //ViewBag.Title = "Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<table align="center" cellpadding="20" cellspacing="0" width="980">
+    <tr>
+    <td valign="top" class="NormalText">
+        <div class="TitleString"><b>@ViewBag.TitleStr</b></div>
+        <br/>
+        @Html.Raw(HttpUtility.HtmlDecode(Model.ToString()))        
+    </td>
+    </tr>
+</table>

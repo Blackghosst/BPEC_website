@@ -1,0 +1,115 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/BPEC.css" rel="stylesheet"/>
+    <link type="text/css" href="~/Content/skitter.styles.css" media="all" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/jquery-1.8.1.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.animate-colors-min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.skitter.min.js"></script>
+    <script type="text/javascript">
+    	$(document).ready(function() {
+    		$('.box_skitter_large').skitter({
+    			theme: 'clean',
+    			dots: true, 
+    			preview: true,
+    			numbers_align: 'center',
+          progressbar: true,
+          interval: 5000
+    		});
+    	});
+    </script>    
+  </head>
+  <body>
+	<!--Header Table-->
+    <table align="center" width="980" cellpadding="0" cellspacing="0">
+		 <tr height="191">
+		 	  <td width="25" style='background:url(@Url.Content("~/Images/header-top-left.jpg"))'></td>
+        <td width="930" style='background:url(@Url.Content("~/Images/header-top-center.jpg"))' valign="top">
+          <table width="100%" cellpadding="0" cellspacing="0">
+            <tr height="100">
+              <td width="15"></td>
+              <td width="257" style='background:url(@Url.Content("~/Images/header-logo.jpg"))'></td>
+              <td width="650" valign="top">
+                <table width="100%" cellpadding="0" cellspacing="0">
+                  <tr height="35">
+                    <td align="right" class="TopHeaderLink">
+                       <a class="TopHeaderLink" href="~/Home/Index">Home</a> &nbsp; | &nbsp; <a class="TopHeaderLink" href="">Contact us</a> &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;  
+                    </td>
+                  </tr>
+                </table>
+                <table width="90%" align="center" cellpadding="0" cellspacing="0">
+                  <tr height="65">
+                    <td align="center" class="HeaderLink"><a class="HeaderLink" href="~/Home/AboutPage/?section=Who we are?">About us</a></td>
+                    <td align="center" class="HeaderLink"><a class="HeaderLink" href="~/Home/ProgramsPage/?section=Corporate Courses">Programs</a></td>
+                    <td align="center" class="HeaderLink"><a class="HeaderLink" href="~/Home/CertificatesPage/">Professional <br/>Certifications</a></td>
+                    <td align="center" class="HeaderLink"><a class="HeaderLink" href="~/Home/ClientPage/?client=">Our Clients</a></td>
+                    <td align="center" class="HeaderLink"><a class="HeaderLink" href="">Careers</a></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr height="91">
+              <td colspan="3">
+                <table width="100%" height="91" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                     <td width="480">&nbsp;</td>
+                    <td width="450" align="center" class="HeaderAnnoncment" valign="top">@Html.Raw(HttpUtility.HtmlDecode(BPEC.Controllers.HomeController.GetHeader()))</td>
+                  </tr>
+                </table>
+              </td>               
+            </tr>
+          </table>
+        </td>
+        <td width="25" style='background:url(@Url.Content("~/Images/header-top-right.jpg"))'></td>
+		 </tr>
+		</table>
+        <table align="center" cellpadding="0" cellspacing="0" width="930">
+          <tr>
+            <td>
+                  @RenderSection("featured", required: false)
+                @RenderBody()
+    <!--Footer Table-->
+            </td>
+          </tr>
+        </table>
+      <!--Lower Table-->
+        <table align="center" cellpadding="20" cellspacing="0" width="980">
+          <tr bgcolor="#f1f1f1">
+            <td width="400" valign="top">
+                 <div class="TitleString">Students Services</div>
+                 <br/>
+                 <div style="padding-left:20px;">
+                  <a href="~/Home/Page?section=Training Calendar" class="NormalLink" style="line-height:25px;">Training Calendar</a><br/>
+                  <a href="http://209.147.122.76/Login.aspx" target="_blank" class="NormalLink" style="line-height:25px">Email</a><br/>
+                  <a href="~/Home/Page?section=How to Configure Microsoft Outlook to access Email" class="NormalLink" style="line-height:25px">How to Configure Microsoft Outlook to access Email</a><br/>
+                  <a href="http://bpc.ae/Moodle/" target="_blank" class="NormalLink" style="line-height:25px">Moodle</a><br/>              
+                 </div>
+                 <br/>
+                 <div class="TitleString">Employees Services</div>
+                 <br/>
+                 <div style="padding-left:20px;">
+                  <a href="http://209.147.122.76/Login.aspx" target="_blank" class="NormalLink" style="line-height:25px">Email</a><br/>
+                  <a href="~/Home/Page?section=How to Configure Microsoft Outlook to access Email" class="NormalLink" style="line-height:25px">How to Configure Microsoft Outlook to access Email</a><br/>
+                  <a href="~/Admin/" class="NormalLink" style="line-height:25px">Employee Login</a><br/>
+                 </div>
+            </td>
+            <td width="3"><img src='~/Images/separator.jpg' width="3" height="180" /></td>
+            <td valign="top">
+              <div class="TitleString">Location Map</div>
+              <br/>
+              <center>
+                <iframe width="500" height="220" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Hamdan+Center+-+near+Al+Markaziyah+-+Abu+Dhabi+-+United+Arab+Emirates&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=45.418852,93.076172&amp;ie=UTF8&amp;hq=Hamdan+Center+-&amp;hnear=Al+Markaziyah+-+Abu+Dhabi+-+United+Arab+Emirates&amp;t=m&amp;ll=24.488867,54.362841&amp;spn=0.00703,0.025792&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Hamdan+Center+-+near+Al+Markaziyah+-+Abu+Dhabi+-+United+Arab+Emirates&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=45.418852,93.076172&amp;ie=UTF8&amp;hq=Hamdan+Center+-&amp;hnear=Al+Markaziyah+-+Abu+Dhabi+-+United+Arab+Emirates&amp;t=m&amp;ll=24.488867,54.362841&amp;spn=0.00703,0.025792&amp;z=15&amp;iwloc=A" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+              </center>
+            </td>
+          </tr>
+        </table>
+      <table align="center" cellpadding="7" cellspacing="0" width="980">
+      <tr bgcolor="#43494c">
+        <td align="center" class="NormalText" style="color:white;">© @DateTime.Now.Year Bussiness Professionals Education Center. All rights reserved</td>
+      </tr>
+    </table>  
+  </body>
+</html>
+

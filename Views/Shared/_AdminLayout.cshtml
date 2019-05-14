@@ -1,0 +1,107 @@
+﻿@{
+    if (!Request.IsAuthenticated && ViewBag.Title != "Log in" && ViewBag.Title != "Admin Home")
+    {
+        Response.Redirect("~/Admin/Index/");
+    }//if
+    Layout = null;
+}
+<html>
+  <head runat="server">
+    <title>BPEC Home</title>
+    <link href="~/Content/BPEC.css" rel="stylesheet"/>
+    <link href="~/Content/MVC.css" rel="stylesheet"/>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+  </head>
+  <body>
+	<!--Header Table-->
+    <table align="center" width="980" cellpadding="0" cellspacing="0">
+		 <tr height="191">
+		    <td width="25" style='background:url(@Url.Content("~/Images/header-top-left.jpg"))'></td>
+            <td width="930" style='background:url(@Url.Content("~/Images/header-top-center.jpg"))' valign="top">
+                <table width="100%" cellpadding="0" cellspacing="0">
+                <tr height="100">
+                    <td width="15"></td>
+                    <td width="257" style='background:url(@Url.Content("~/Images/header-logo.jpg"))'></td>
+                    <td width="650" valign="top">
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                        <tr height="35">
+                        <td align="right" class="TopHeaderLink">
+                            <a class="TopHeaderLink" href="~/Home/">BPEC Website Home</a> &nbsp; | &nbsp; <a class="TopHeaderLink" href="~/Admin/">Admin Home</a> &nbsp; | &nbsp; @Html.Partial("_LoginPartial") &nbsp; &nbsp; &nbsp; &nbsp;  
+                        </td>
+                        </tr>
+                    </table>
+                    <table width="90%" align="center" cellpadding="0" cellspacing="0">
+                        <tr height="65">
+                            @if(Request.IsAuthenticated){
+                        <td align="center" class="HeaderLink"><a class="HeaderLink" href="~/PageContent/">Pages Content</a></td>
+                        <td align="center" class="HeaderLink"><a class="HeaderLink" href="~/Certificate/">Certificates</a></td>
+                        <td align="center" class="HeaderLink"><a class="HeaderLink" href="~/Client/">Clients</a></td>
+                        <td align="center" class="HeaderLink"><a class="HeaderLink" href="~/Account/Register/">Add New<br />Admin User</a></td>
+                        <td align="center" class="HeaderLink"><a class="HeaderLink" href="">Careers</a></td>
+                            }
+                            else
+                            {
+                                <td align="center" class="HeaderLink"><a class="HeaderLink" href="~/Account/Login/">Login</a></td>
+                            }
+                        </tr>
+                    </table>
+                    </td>
+                </tr>
+                <tr height="91">
+                    <td colspan="3">
+                    <table width="100%" height="91" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                            <td width="480">&nbsp;</td>
+                        <td width="450" align="center" class="HeaderAnnoncment" valign="top">BPEC Content Management Administration Portal</td>
+                        </tr>
+                    </table>
+                    </td>               
+                </tr>
+                </table>
+            </td>
+            <td width="25" style='background:url(@Url.Content("~/Images/header-top-right.jpg"))'></td>
+		 </tr>
+	</table>
+    <!--Middle Table-->
+    <table align="center" cellpadding="0" cellspacing="10" width="930">
+      <tr>
+        <td valign='top' style="font-size:11px;">
+                  @RenderSection("featured", required: false)
+                @RenderBody()
+            <br />
+        </td>
+       </tr>
+    </table>
+    <!--Footer Table-->
+    <table align="center" cellpadding="7" cellspacing="0" width="980">
+      <tr bgcolor="#43494c">
+        <td align="center" class="NormalText" style="color:white;">© 2013 Bussiness Professionals Education Center. All rights reserved</td>
+      </tr>
+    </table>
+  @Scripts.Render("~/bundles/jquery")
+  @RenderSection("scripts", required: false) 
+      <script>
+          $(document).ready(function () {
+             
+
+              $.validator.addMethod('date',
+                  function (value, element, params) {
+                      if (this.optional(element)) {
+                          return true;
+                      }
+
+                      var ok = true;
+                      try {
+                          ok = true;
+                      }
+                      catch (err) {
+                          ok = false;
+                      }
+                      return ok;
+                  });
+          });
+
+      </script> 
+  </body>
+</html>

@@ -1,0 +1,37 @@
+﻿@model BPEC.Controllers.HomeController.CertificateView
+@{
+    //ViewBag.Title = "CertificatesPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<table align="center" cellpadding="20" cellspacing="0" width="980">
+    <tr>
+    <td width="200" valign="top" bgcolor="#f1f1f1">
+        <div class="TitleString">Professional Certificates</div>
+            <br/>
+        <div style="padding-left:20px;">
+            @foreach (BPEC.Controllers.HomeController.CertificateName item in BPEC.Controllers.HomeController.GetCertificates())
+            {
+                <a href="~/Home/CertificatesPage/?cert=@item.CertificateNameStr" class="NormalLink" style="line-height:25px;">@item.CertificateNameStr</a><br/>
+            }
+        </div>
+    </td>
+    <td valign="top" class="NormalText">
+        <div class="TitleString"><b>@ViewBag.TitleStr</b></div>
+        <br/>
+        <div class="TitleString">About @ViewBag.TitleStr</div>
+        @Html.Raw(HttpUtility.HtmlDecode(Model.CertificateAbout))  
+        <br/>      
+        
+        <div class="TitleString">Why @ViewBag.TitleStr</div>
+        @Html.Raw(HttpUtility.HtmlDecode(Model.CertificateWhy))
+        <br/>
+
+        <div class="TitleString">Why @ViewBag.TitleStr with BPEC</div>
+        @Html.Raw(HttpUtility.HtmlDecode(Model.CertificateWhyBPEC))
+        <br/>
+
+        <div class="TitleString">Who should take @ViewBag.TitleStr</div>
+        @Html.Raw(HttpUtility.HtmlDecode(Model.CertificateWho))
+    </td>
+    </tr>
+</table>
